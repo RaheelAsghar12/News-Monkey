@@ -12,9 +12,9 @@ const News = ({ category, darkMode }) => {
 
   // Fetch news from Netlify serverless function
   const fetchNews = async (pageNum = 1, search = "") => {
-    const url = `/.netlify/functions/news?category=${category}&page=${pageNum}&query=${search}`;
-    const res = await fetch(url);
-    const data = await res.json();
+   const res = await fetch(`/api/news?category=${category}&page=${pageNum}&query=${query}`);
+const data = await res.json();
+
 
     if (!data.articles) {
       console.error("Error fetching news:", data);
